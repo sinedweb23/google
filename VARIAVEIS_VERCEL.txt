@@ -1,0 +1,88 @@
+===========================================
+LISTA DE VARIÁVEIS DE AMBIENTE - VERCEL
+===========================================
+
+Copie e cole cada variável no painel da Vercel:
+
+1. NEXT_PUBLIC_SUPABASE_URL
+   Valor: https://hvrrixmsijkehdlaxdsi.supabase.co
+   Ambiente: Production, Preview, Development
+
+2. SUPABASE_SERVICE_ROLE_KEY
+   Valor: [OBTER NO SUPABASE DASHBOARD]
+   Onde obter: https://app.supabase.com/project/hvrrixmsijkehdlaxdsi/settings/api
+   Role: service_role (é a chave SECRETA, não a anon)
+   Ambiente: Production, Preview, Development
+
+3. API_EXTERNA_URL
+   Valor: https://loja.escolamorumbisul.com.br/api/importacao.php
+   Ambiente: Production, Preview, Development
+
+4. API_EXTERNA_KEY
+   Valor: [SUA_API_KEY_DA_API_PHP]
+   Ambiente: Production, Preview, Development
+
+5. API_KEY_INTERNA
+   Valor: [GERAR UMA CHAVE FORTE]
+   Dica: Use: openssl rand -base64 32
+   Ambiente: Production, Preview, Development
+
+6. GOOGLE_SERVICE_ACCOUNT_EMAIL
+   Valor: [EMAIL_DO_SERVICE_ACCOUNT]
+   Formato: service-account@projeto.iam.gserviceaccount.com
+   Ambiente: Production, Preview, Development
+
+7. GOOGLE_PRIVATE_KEY
+   Valor: [CHAVE_PRIVADA_DO_SERVICE_ACCOUNT]
+   IMPORTANTE: Use aspas duplas e mantenha \n
+   Exemplo: "-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n"
+   Ambiente: Production, Preview, Development
+
+8. GOOGLE_ADMIN_EMAIL
+   Valor: [EMAIL_DO_ADMIN_DO_DOMINIO]
+   Exemplo: admin@escola.com.br
+   Ambiente: Production, Preview, Development
+
+9. GOOGLE_DOMAIN
+   Valor: [DOMINIO_DO_GOOGLE_WORKSPACE]
+   Exemplo: escola.com.br
+   Ambiente: Production, Preview, Development
+
+10. NODE_ENV
+    Valor: production
+    Ambiente: Production, Preview, Development
+
+===========================================
+INSTRUÇÕES:
+===========================================
+
+1. Acesse: https://vercel.com/dashboard
+2. Selecione seu projeto (ou crie novo)
+3. Vá em: Settings > Environment Variables
+4. Clique em: Add New
+5. Cole cada variável acima
+6. Marque todos os ambientes (Production, Preview, Development)
+7. Clique em Save
+
+===========================================
+ONDE OBTER OS VALORES:
+===========================================
+
+SUPABASE_SERVICE_ROLE_KEY:
+→ https://app.supabase.com/project/hvrrixmsijkehdlaxdsi/settings/api
+→ Role: service_role
+→ Copie a chave (começa com eyJ...)
+
+GOOGLE_SERVICE_ACCOUNT_EMAIL e GOOGLE_PRIVATE_KEY:
+→ Google Cloud Console
+→ IAM & Admin > Service Accounts
+→ Selecione seu Service Account
+→ Keys > Add Key > Create new key > JSON
+→ Do JSON, copie:
+   - client_email → GOOGLE_SERVICE_ACCOUNT_EMAIL
+   - private_key → GOOGLE_PRIVATE_KEY (com \n)
+
+API_KEY_INTERNA:
+→ Gere uma chave forte:
+   Windows PowerShell: [Convert]::ToBase64String((1..32 | ForEach-Object { Get-Random -Minimum 0 -Maximum 256 }))
+   Ou use: https://www.random.org/strings/
